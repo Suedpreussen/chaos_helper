@@ -30,8 +30,16 @@
             }
         }
 
+        // get set-difference 
         let uniqueLetters = lettersFromInput.filter(x => !repeatedLetters.has(x));
-        document.getElementById('result').textContent = `Unikalne litery: ${uniqueLetters.join(', ')}`;
+
+        // print result to the page
+        document.getElementById('result').textContent = `Unikalne litery: ${uniqueLetters.join(', ').toUpperCase()}`;
     }
 
+function triggerByEnter(event){
+    if(event.key === 'Enter'){
+        findUniqueLetters();
+    }
+}
 

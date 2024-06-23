@@ -1,0 +1,64 @@
+ /* General body styling */
+ body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f7f7;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column; /* Display children in a column */
+}
+
+/* Header styling */
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 20px 0;
+    color: #2c3e50;
+}
+
+/* Input styling */
+input[type="text"] {
+    font-size: 1.2rem;
+    padding: 12px;
+    border: 2px solid #3498db;
+    border-radius: 5px;
+    margin: 10px;
+    width: 300px;
+    max-width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #e67e22; /* Orange border color on focus */
+}
+
+/* Button styling */
+button {
+    font-size: 1.2rem;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    background-color: #e67e22; /* Orange background */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #d35400; /* Darker orange on hover */
+}
+
+/* Result paragraph styling */
+#result {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin: 20px 0;
+}

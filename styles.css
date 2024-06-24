@@ -30,8 +30,8 @@ textarea[type="text"] {
     margin: 10px;
 
     width: auto;
-    overflow: auto;
-    resize: auto;
+    overflow: visible;
+    resize: both;
 
     box-sizing: border-box;
     transition: border-color 0.3s ease;

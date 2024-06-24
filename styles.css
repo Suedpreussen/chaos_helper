@@ -14,6 +14,7 @@
 
 /* Header styling */
 h1 {
+    height: 13vh;
     text-align: center;
     font-size: 2.5rem;
     margin: 20px 0;
@@ -27,8 +28,11 @@ input[type="text"] {
     border: 2px solid #3498db;
     border-radius: 5px;
     margin: 10px;
-    width: 500px;
+
+    width: fit-content;
+    min-width: 40%;
     max-width: 100%;
+
     box-sizing: border-box;
     transition: border-color 0.3s ease;
 }

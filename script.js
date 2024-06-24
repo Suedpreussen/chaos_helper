@@ -35,6 +35,10 @@
 
         // print result to the page
         document.getElementById('result').textContent = `Unikalne litery: ${uniqueLetters.join(', ').toUpperCase()}`;
+
+        // print intention for better visibility
+        document.getElementById('intention').textContent = document.getElementById("userInput").value;
+
     }
 
 function triggerByEnter(event){

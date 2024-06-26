@@ -3,7 +3,14 @@
     // the output is the set of unique letters 
 
     function findUniqueLetters(){
-            
+        // check if user input is not too large
+        const charLimit = 1000;
+        if (document.getElementById("userInput").value.length > charLimit){
+            document.getElementById('result').textContent = `Tekst musi zawierać mniej niż ${charLimit} znaków!`;
+        }
+
+        // if correct, proceed
+        else{
         // declare array of all letters in your language
         const letters = ["a", "ą", "b", "c", "ć", "d", "e", "ę", 
             "f", "g", "h", "i", "j", "k", "l", "ł", "m", "n", "ń", "o",  
@@ -39,6 +46,7 @@
         // print intention for better visibility
         document.getElementById('intention').textContent = document.getElementById("userInput").value;
 
+        }
     }
 
 function triggerByEnter(event){

@@ -21,6 +21,38 @@ h1 {
     color: #2c3e50;
 }
 
+.rainbow-text {
+  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+  -webkit-background-clip: text;
+  -background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.rainbow-anim-text {
+  background-image: repeating-linear-gradient(45deg, violet, indigo, blue, green, yellow, orange, red, violet);
+  text-align: center;
+  background-size: 800% 800%;
+  -webkit-background-clip: text;
+  -background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow 8s ease infinite;
+}
+
+@keyframes rainbow { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 25%}
+    100%{background-position:0% 50%}
+}
+
+
+h3 {
+    height: 13vh;
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 20px;
+    color: #2c3e50;
+}
+
 /* Input styling */
 textarea[type="text"] {
     font-size: 1.2rem;

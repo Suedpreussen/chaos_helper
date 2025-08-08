@@ -14,9 +14,13 @@
         // declare array of all letters in your language
         const letters = ["a", "ą", "b", "c", "ć", "d", "e", "ę", 
             "f", "g", "h", "i", "j", "k", "l", "ł", "m", "n", "ń", "o",  
-            "ó", "p", "q", "r", "s", "ś", "t", "u", "v", "w", "x", "y", "z", "ż", "ź"];
+            "ó", "p", "q", "r", "s", "ś", "t", "u", "v", "w", "x", "y", "z", "ż", "ź",
+            'à', 'á', 'â', 'ã', 'ä', 'å', 'æ', 'ç', 'è', 'é', 'ê', 'ë', 'ì', 'í', 'î', 
+            'ï', 'ð', 'ñ', 'ò', 'ó', 'ô', 'õ', 'ö', 'ø', 'ù', 'ú', 'û', 'ü', 'ý', 'þ', 'ÿ'];
 
-        // get user input and convert to lower case
+
+
+        // change user input and convert to lower case
         const input = document.getElementById("userInput").value.toLowerCase();
 
         // declare temporary arrays

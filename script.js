@@ -1,69 +1,81 @@
-    // user inserts a sentence
-    // every letter that occurs more than once gets crossed out
-    // the output is the set of unique letters 
+// script.js
+function findUniqueLetters() {
+    const charLimit = 1000;
 
-    function findUniqueLetters(){
-        // check if user input is not too large
-        const charLimit = 1000;
-        if (document.getElementById("userInput").value.length > charLimit){
-            document.getElementById('result').textContent = `Tekst musi zawierać mniej niż ${charLimit} znaków!`;
-        }
+    const userInput = document.getElementById("userInput");
+    const result = document.getElementById("result");
+    const intention = document.getElementById("intention");
 
-        // if correct, proceed
-        else{
-        // declare array of all letters in your language
-        const letters = ["a", "ą", "b", "c", "ć", "d", "e", "ę", 
-            "f", "g", "h", "i", "j", "k", "l", "ł", "m", "n", "ń", "o",  
-            "ó", "p", "q", "r", "s", "ś", "t", "u", "v", "w", "x", "y", "z", "ż", "ź",
-            'à', 'á', 'â', 'ã', 'ä', 'å', 'æ', 'ç', 'è', 'é', 'ê', 'ë', 'ì', 'í', 'î', 
-            'ï', 'ð', 'ñ', 'ò', 'ó', 'ô', 'õ', 'ö', 'ø', 'ù', 'ú', 'û', 'ü', 'ý', 'þ', 'ÿ'];
-
-
-
-        // change user input and convert to lower case
-        const input = document.getElementById("userInput").value.toLowerCase();
-
-        // declare temporary arrays
-        let lettersFromInput = [];
-        let repeatedLetters = new Set();
-
-        // main loop
-        for (const char of input){
-            // check if char is a letter 
-            if(letters.includes(char)){
-                // and if it's already pushed
-                if((lettersFromInput.includes(char))){
-                    repeatedLetters.add(char);
-                }
-                else{
-                    lettersFromInput.push(char);
-                }
-            }
-        }
-
-        // get set-difference 
-        let uniqueLetters = lettersFromInput.filter(x => !repeatedLetters.has(x));
-
-        // print result to the page
-        document.getElementById('result').textContent = `Unikalne litery: ${uniqueLetters.join(', ').toUpperCase()}`;
-
-        // print intention for better visibility
-        document.getElementById('intention').textContent = document.getElementById("userInput").value;
-
-        }
+    if (!userInput || !result || !intention) {
+        console.error("Missing DOM elements (userInput/result/intention)");
+        return;
     }
 
-function triggerByEnter(event){
-    if(event.key === 'Enter'){
+    const userText = userInput.value;
+    if (userText.length > charLimit) {
+        result.textContent = `Tekst musi zawierać mniej niż ${charLimit} znaków!`;
+        intention.textContent = "";
+        return;
+    }
+
+    // Map letter -> count
+    const counts = new Map();
+
+    // Unicode property escape: \p{L} = dowolna litera
+    for (const rawChar of userText) {
+        const char = rawChar.toLowerCase();
+        if (!/\p{L}/u.test(char)) continue;
+
+        counts.set(char, (counts.get(char) || 0) + 1);
+    }
+
+    const uniqueLetters = Array.from(counts.entries())
+        .filter(entry => entry[1] === 1)
+        .map(entry => entry[0]);
+
+    const repeatedLetters = Array.from(counts.entries())
+        .filter(entry => entry[1] > 1)
+        .map(entry => entry[0]);
+
+    console.log("Input:", userText);
+    console.log("Counts map (sample):", Array.from(counts.entries()).slice(0, 50));
+    console.log("Unique letters:", uniqueLetters);
+    console.log("Repeated letters:", repeatedLetters);
+
+    result.textContent =
+        uniqueLetters.length > 0
+            ? `Znaki do sigila: ${uniqueLetters.join(", ").toUpperCase()}`
+            : userText.length > 0
+                ? "Znaki do sigila: Brak (żadne znaki nie wystąpiły dokładnie raz)"
+                : "Brak wpisanej intencji";
+
+    intention.textContent =
+        userText.length > 0 ? userInput.value : "Brak wpisanej intencji";
+}
+
+
+function triggerByEnter(event) {
+    if (event.key === 'Enter') {
         findUniqueLetters();
     }
 }
 
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
-      .then(reg => console.log('SW registered', reg))
-      .catch(err => console.log('SW registration failed', err));
-  });
+function clearInput() {
+}
+function saveIntention() {
+}
+function browseIntention() {
+}
+function addRunes(){
+
 }
 
+
+// Service Worker registration for PWA functionality
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+        navigator.serviceWorker.register('/sw.js')
+            .then(function (reg) { return console.log('SW registered', reg); })
+            .catch(function (err) { return console.log('SW registration failed', err); });
+    });
+}

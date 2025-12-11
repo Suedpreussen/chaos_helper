@@ -15,7 +15,24 @@
   <p id="intention"></p>
   <textarea type="text" id="userInput" placeholder="Wpisz swoją intencję" onkeydown="triggerByEnter(event)"></textarea>
   <button onclick="findUniqueLetters()">Otrzymaj litery do sigila</button>
+  <button onclick="saveSigil()">Zapisz sigil</button>
   <p id="result"></p>
+
+  <button id="openRunes">Wybierz runy</button>
+  <!-- === POPUP WYBORU RUN === -->
+  <div id="runePopup" class="popup-overlay">
+    <div class="popup-box">
+      <div class="popup-header">
+        <h3>Wybierz runy</h3>
+        <button id="closeRunes" class="close-btn">✖</button>
+      </div>
+
+      <div id="runeGrid" class="rune-grid"></div>
+    </div>
+  </div>
+
+
+
   <h3>===== Czy on wróci? =====</h3>
   <footer>
     <p> <i>&copy VulpSoft Mega Corp, Inc. 2024-2025</i></p>
@@ -25,6 +42,7 @@
 
 
   <script src="script.js" defer></script>
+  <script src="runes.js" defer></script>
 
 </body>
   

@@ -42,15 +42,19 @@ function findUniqueLetters() {
     console.log("Unique letters:", uniqueLetters);
     console.log("Repeated letters:", repeatedLetters);
 
+    const sigil = uniqueLetters.join(", ").toUpperCase();
+
     result.textContent =
         uniqueLetters.length > 0
-            ? `Znaki do sigila: ${uniqueLetters.join(", ").toUpperCase()}`
+            ? `Znaki do sigila: ${sigil}`
             : userText.length > 0
                 ? "Znaki do sigila: Brak (żadne znaki nie wystąpiły dokładnie raz)"
                 : "Brak wpisanej intencji";
 
     intention.textContent =
         userText.length > 0 ? userInput.value : "Brak wpisanej intencji";
+
+    sessionStorage.setItem("tempSigil", sigil);
 }
 
 
@@ -58,16 +62,6 @@ function triggerByEnter(event) {
     if (event.key === 'Enter') {
         findUniqueLetters();
     }
-}
-
-function clearInput() {
-}
-function saveIntention() {
-}
-function browseIntention() {
-}
-function addRunes(){
-
 }
 
 

@@ -176,17 +176,7 @@ button:hover {
   margin-top: 3px;
 }
 
-/* STORAGE PAGE STYLING */
-/* 
-.sigil-item {
-  padding: 6px;
-  margin-bottom: 4px;
-  background: #f0f0f0;
-  border-radius: 4px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-} */
+/* === ZAPISANE SIGILE W POPUPIE === */
 .sigil-item button {
   margin-left: 10px;
 }

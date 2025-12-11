@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chaos Helper</title>
+  <meta name="theme-color" content="#0078d4">
   <link rel="stylesheet" href="styles.css">
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#0078d4">
-
+  <script src="storage.js" defer></script>
+  <script src="script.js" defer></script>
+  <script src="runes.js" defer></script>
 </head>
 
 <body>
   <h1 class="rainbow-anim-text">Witaj w pomocniku maga chaosu 🦄🧙</h1>
+
   <p id="intention"></p>
   <textarea type="text" id="userInput" placeholder="Wpisz swoją intencję" onkeydown="triggerByEnter(event)"></textarea>
   <button onclick="findUniqueLetters()">Otrzymaj litery do sigila</button>
-  <button onclick="saveSigil()">Zapisz sigil</button>
   <p id="result"></p>
 
   <button id="openRunes">Wybierz runy</button>
@@ -31,18 +34,16 @@
     </div>
   </div>
 
+  <button onclick="saveSigil()">Zapisz sigil</button>
+
+  <a href="storage.html"><button>Zobacz zapisane sigile</button></a>
 
 
   <h3>===== Czy on wróci? =====</h3>
+
   <footer>
     <p> <i>&copy VulpSoft Mega Corp, Inc. 2024-2025</i></p>
   </footer>
-
-
-
-
-  <script src="script.js" defer></script>
-  <script src="runes.js" defer></script>
 
 </body>
   

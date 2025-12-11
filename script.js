@@ -1,6 +1,6 @@
-// script.js
+// main functionality
 function findUniqueLetters() {
-    const charLimit = 1000;
+    const charLimit = 500;
 
     const userInput = document.getElementById("userInput");
     const result = document.getElementById("result");
@@ -13,7 +13,7 @@ function findUniqueLetters() {
 
     const userText = userInput.value;
     if (userText.length > charLimit) {
-        result.textContent = `Tekst musi zawierać mniej niż ${charLimit} znaków!`;
+        result.textContent = `Tekst nie może zawierać więcej niż ${charLimit} znaków!`;
         intention.textContent = "";
         return;
     }
@@ -48,13 +48,14 @@ function findUniqueLetters() {
         uniqueLetters.length > 0
             ? `Znaki do sigila: ${sigil}`
             : userText.length > 0
-                ? "Znaki do sigila: Brak (żadne znaki nie wystąpiły dokładnie raz)"
+                ? "Wszystkie litery się powtarzają!"
                 : "Brak wpisanej intencji";
 
     intention.textContent =
         userText.length > 0 ? userInput.value : "Brak wpisanej intencji";
 
     sessionStorage.setItem("tempSigil", sigil);
+    
 }
 
 
@@ -72,4 +73,21 @@ if ('serviceWorker' in navigator) {
             .then(function (reg) { return console.log('SW registered', reg); })
             .catch(function (err) { return console.log('SW registration failed', err); });
     });
+}
+
+
+// storage
+async function saveSigil() {
+    const sigilText = sessionStorage.getItem("tempSigil");
+    const intention = document.getElementById("intention").textContent;
+    if (!sigilText || !intention) {
+        alert("Najpierw wygeneruj sigil.");
+        return;
+    }
+
+    await saveSigilToDB(sigilText, intention); // (1) nazwa nowej funkcji poniżej
+
+    alert("Zapisano!");
+
+    renderSigils(); // odświeżamy listę
 }

@@ -1,10 +1,14 @@
 const CACHE_NAME = 'chaos-helper-cache-v1';
 const urlsToCache = [
   'index.html',
-  'style.css',
-  'script.js',
-  'image/icon-192.png',
-  'image/icon-512.png'
+  'storage.html',
+  '/styles/styles.css',
+  '/src/script.js',
+  '/src/runes.js',
+  '/src/storage.js',
+  '/src/render-sigils.js',
+  '/images/icon-192.png',
+  '/images/icon-512.png'
 ];
 
 self.addEventListener('install', event => {

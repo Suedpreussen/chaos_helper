@@ -74,20 +74,3 @@ if ('serviceWorker' in navigator) {
             .catch(function (err) { return console.log('SW registration failed', err); });
     });
 }
-
-
-// storage
-async function saveSigil() {
-    const sigilText = sessionStorage.getItem("tempSigil");
-    const intention = document.getElementById("intention").textContent;
-    if (!sigilText || !intention) {
-        alert("Najpierw wygeneruj sigil.");
-        return;
-    }
-
-    await saveSigilToDB(sigilText, intention); // (1) nazwa nowej funkcji poniżej
-
-    alert("Zapisano!");
-
-    renderSigils(); // odświeżamy listę
-}

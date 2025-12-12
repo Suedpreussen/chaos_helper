@@ -2,7 +2,7 @@ const CACHE_NAME = 'chaos-helper-cache-v1';
 const urlsToCache = [
   'index.html',
   'storage.html',
-  '/styles/styles.css',
+  'styles.css',
   '/src/script.js',
   '/src/runes.js',
   '/src/storage.js',

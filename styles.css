@@ -175,30 +175,3 @@ button:hover {
   color: #555;
   margin-top: 3px;
 }
-
-/* === ZAPISANE SIGILE W POPUPIE === */
-.sigil-item button {
-  margin-left: 10px;
-}
-
-.sigil-item {
-  display: grid;
-  grid-template-columns: 2fr 2fr 1fr auto; /* intencja | sigil | data | przycisk */
-  gap: 10px;
-  padding: 6px;
-  margin-bottom: 4px;
-  background: #f0f0f0;
-  border-radius: 4px;
-  align-items: center;
-}
-
-.sigil-part {
-  overflow-wrap: anywhere;
-}
-
-#sigilList {
-  max-height: 70vh;
-  overflow-y: auto;
-  scroll-behavior: smooth;
-  padding-right: 6px;
-}

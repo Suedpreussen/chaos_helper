@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zapisane Sigile</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="sigil-panel.css">
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
   <script src="/src/storage.js" defer></script>
   <script src="/src/render-sigils.js" defer></script>
@@ -13,6 +14,14 @@
 
 <body>
   <h1>Twoje zapisane sigile</h1>
+  <div class="wrapper">
+  <div class="sigil-header">
+    <div>Intencja</div>
+    <div>Sigil</div>
+    <div>Data</div>
+    <div></div>
+  </div>
+
   <div id="sigilList"></div>
   <a href="index.html"><button>Wróć do generatora</button></a>
 </body>

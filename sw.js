@@ -3,10 +3,10 @@ const urlsToCache = [
   'index.html',
   'storage.html',
   'styles.css',
-  '/src/script.js',
-  '/src/runes.js',
-  '/src/storage.js',
-  '/src/render-sigils.js',
+  'script.js',
+  'runes.js',
+  'storage.js',
+  'render-sigils.js',
   '/images/icon-192.png',
   '/images/icon-512.png'
 ];

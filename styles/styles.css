@@ -2,7 +2,7 @@
  body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f9f7f7;
-    color: #333;
+    color: #2c2525;
     margin: 0;
     padding: 0;
     display: flex;
@@ -175,24 +175,3 @@ button:hover {
   color: #555;
   margin-top: 3px;
 }
-
-/* === ZAPISANE SIGILE W POPUPIE === */
-.sigil-item button {
-  margin-left: 10px;
-}
-
-.sigil-item {
-  display: grid;
-  grid-template-columns: 2fr 2fr 1fr auto; /* intencja | sigil | data | przycisk */
-  gap: 10px;
-  padding: 6px;
-  margin-bottom: 4px;
-  background: #f0f0f0;
-  border-radius: 4px;
-  align-items: center;
-}
-
-.sigil-part {
-  overflow-wrap: anywhere;
-}
-

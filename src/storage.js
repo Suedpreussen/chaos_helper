@@ -16,28 +16,28 @@ function openDB() {
 }
 
 async function saveSigil() {
-    const sigilText = sessionStorage.getItem("tempSigil");
+    const sigil = sessionStorage.getItem("tempSigil");
     const intention = document.getElementById("intention").textContent;
-    if (!sigilText || !intention) {
+    if (!sigil || !intention) {
         alert("Najpierw wygeneruj sigil.");
         return;
     }
 
-    await saveSigilToDB(sigilText, intention); // (1) nazwa nowej funkcji poniżej
+    await saveSigilToDB(sigil, intention); // (1) nazwa nowej funkcji poniżej
 
     alert("Zapisano!");
 
     renderSigils(); // odświeżamy listę
 }
 
-async function saveSigilToDB(sigilText, intention) {
+async function saveSigilToDB(sigil, intention) {
   const db = await openDB();
   const tx = db.transaction("sigils", "readwrite");
   const store = tx.objectStore("sigils");
 
   const record = {
     id: crypto.randomUUID(),
-    sigilText: sigilText,
+    sigil: sigil,
     intention: intention,
     createdAt: new Date().toISOString()
   };

@@ -1,0 +1,77 @@
+body {
+background: #c62828;
+color: white;
+border: none;
+padding: 6px 12px;
+border-radius: 4px;
+cursor: pointer;
+}
+
+
+.delete-btn:hover {
+background: #8e0000;
+}
+
+
+/* Scrollbar styling */
+#sigilList::-webkit-scrollbar {
+width: 8px;
+}
+#sigilList::-webkit-scrollbar-track {
+background: #ddd;
+border-radius: 4px;
+}
+#sigilList::-webkit-scrollbar-thumb {
+background: #888;
+border-radius: 4px;
+}
+#sigilList::-webkit-scrollbar-thumb:hover {
+background: #666;
+}
+
+
+.back-btn {
+margin-top: 16px;
+display: block;
+padding: 10px;
+width: 200px;
+text-align: center;
+background: #0078d4;
+color: white;
+text-decoration: none;
+border-radius: 6px;
+margin-left: auto;
+margin-right: auto;
+}
+
+
+.back-btn:hover {
+background: #005fa3;
+}
+
+@keyframes gradientAnimation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 25%}
+    100%{background-position:0% 50%}
+}
+.sigil-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 0.5fr;
+    gap: 10px;
+    font-weight: bold;
+    padding: 10px;
+    border-bottom: 2px solid white;
+    margin-bottom: 10px;
+}
+.wrapper {
+    max-height: 80vh;
+    overflow-y: auto;
+}
+.sigil-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 0.5fr;
+    gap: 10px;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
